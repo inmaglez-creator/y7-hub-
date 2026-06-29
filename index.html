@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Y7 Summer Study Hub</title>
+<style>
+  :root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: linear-gradient(160deg, #f4f6ff 0%, #eef2f7 100%);
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 8px; }
+  header h1 {
+    font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #6C63FF, #059669);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  header p { color: #64748b; font-size: 1.05rem; margin-top: 6px; }
+  .badge {
+    display: inline-block; margin-top: 14px; background: #6C63FF; color: #fff;
+    font-size: .8rem; font-weight: 600; padding: 5px 14px; border-radius: 20px;
+  }
+  .grid {
+    margin-top: 34px;
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .card {
+    background: #fff; border-radius: 18px; padding: 22px;
+    text-decoration: none; color: inherit;
+    border: 1px solid #eceef3;
+    box-shadow: 0 2px 10px rgba(30,41,59,.04);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    display: flex; flex-direction: column; gap: 8px;
+    border-top: 4px solid var(--c);
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(30,41,59,.12); border-color: var(--c); }
+  .card .top { display: flex; align-items: center; gap: 10px; }
+  .card .icon {
+    width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 1.3rem;
+    background: var(--l);
+  }
+  .card h2 { font-size: 1.12rem; font-weight: 700; color: var(--c); }
+  .card .desc { color: #64748b; font-size: .9rem; line-height: 1.45; flex: 1; }
+  .card .go { font-size: .85rem; font-weight: 700; color: var(--c); margin-top: 4px; }
+  .schedule {
+    margin-top: 44px; background: #fff; border-radius: 18px; padding: 26px;
+    border: 1px solid #eceef3; box-shadow: 0 2px 10px rgba(30,41,59,.04);
+  }
+  .schedule h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 4px; }
+  .schedule .sub { color: #64748b; font-size: .9rem; margin-bottom: 18px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px 12px; font-size: .92rem; border-bottom: 1px solid #f1f3f7; }
+  th { color: #94a3b8; font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .4px; }
+  td.day { font-weight: 700; color: #475569; width: 130px; }
+  .tip { margin-top: 18px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 12px 16px; font-size: .88rem; color: #92400e; }
+  footer { text-align: center; color: #94a3b8; font-size: .82rem; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Y7 Summer Study Hub</h1>
+    <p>Practise KS3 Year 7 with your own AI tutor — one subject at a time.</p>
+    <span class="badge">9 subjects · British curriculum (KS3)</span>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="schedule">
+    <h3>Suggested weekly plan</h3>
+    <p class="sub">About 1 hour a day: 30 min academic English + 30 min for the subject(s) of the day. Weekends off.</p>
+    <table>
+      <thead><tr><th>Day</th><th>English (30 min)</th><th>Subject of the day (30 min)</th></tr></thead>
+      <tbody>
+        <tr><td class="day">Monday</td><td>PEEL writing</td><td>📐 Maths</td></tr>
+        <tr><td class="day">Tuesday</td><td>Reading & analysis</td><td>🔬 Science</td></tr>
+        <tr><td class="day">Wednesday</td><td>Text types</td><td>📝 Grammar + 🔤 Spellings</td></tr>
+        <tr><td class="day">Thursday</td><td>PEEL writing</td><td>🇩🇪 Deutsch + 🇫🇷 Français</td></tr>
+        <tr><td class="day">Friday</td><td>Reading & analysis</td><td>🗺️ Geography + 📜 History</td></tr>
+        <tr><td class="day">Weekend</td><td colspan="2" style="color:#94a3b8;">Free — rest &amp; optional reading for fun</td></tr>
+      </tbody>
+    </table>
+    <div class="tip">💡 Tip: the two areas that make the biggest difference at the start of Y7 are <strong>basic algebra</strong> and <strong>PEEL writing</strong>. Build them in regularly.</div>
+  </div>
+
+  <footer>Open any subject in a new tab. Works on phone, tablet or computer.</footer>
+</div>
+
+<script>
+  const SUBJECTS = [
+    { icon: "📐", name: "Maths",      c: "#6C63FF", l: "#EEF0FF", desc: "Algebra, number, fractions & %, ratio, sequences, geometry, graphs & statistics.", url: "https://maths-y7-ochre.vercel.app/" },
+    { icon: "🔬", name: "Science",    c: "#059669", l: "#ECFDF5", desc: "Cells, particles, forces, energy, reproduction, acids & alkalis, light & sound, electricity, space.", url: "https://science-y7.vercel.app/" },
+    { icon: "✍️", name: "English",    c: "#DB2777", l: "#FDF2F8", desc: "PEEL paragraphs, text types, reading comprehension & language analysis.", url: "https://english-y7.vercel.app/" },
+    { icon: "📝", name: "Grammar",    c: "#7C3AED", l: "#F5F3FF", desc: "Parts of speech, clauses, tenses, punctuation and active/passive voice.", url: "https://grammar-y7.vercel.app/" },
+    { icon: "🔤", name: "Spellings",  c: "#9333EA", l: "#FAF5FF", desc: "Official KS3 word list (229 words), homophones and subject vocabulary.", url: "https://spellings-y7.vercel.app/" },
+    { icon: "🗺️", name: "Geography",  c: "#0E7490", l: "#ECFEFF", desc: "Map skills, weather & climate, ecosystems and population.", url: "https://geography-y7.vercel.app/" },
+    { icon: "📜", name: "History",    c: "#B45309", l: "#FFFBEB", desc: "Medieval world, Renaissance & Reformation, British history and source skills.", url: "https://history-y7.vercel.app/" },
+    { icon: "🇩🇪", name: "Deutsch A1", c: "#1E3A8A", l: "#EFF6FF", desc: "Beginner German: greetings, family, school & hobbies, grammar basics.", url: "https://deutsch-a1-eight.vercel.app/" },
+    { icon: "🇫🇷", name: "Français A1",c: "#1D4ED8", l: "#EFF6FF", desc: "Beginner French: greetings, family, school & hobbies, grammar basics.", url: "https://francais-a1-gamma.vercel.app/" },
+  ];
+  const grid = document.getElementById("grid");
+  SUBJECTS.forEach(s => {
+    const a = document.createElement("a");
+    a.className = "card";
+    a.href = s.url; a.target = "_blank"; a.rel = "noopener";
+    a.style.setProperty("--c", s.c);
+    a.style.setProperty("--l", s.l);
+    a.innerHTML = `
+      <div class="top">
+        <div class="icon">${s.icon}</div>
+        <h2>${s.name}</h2>
+      </div>
+      <div class="desc">${s.desc}</div>
+      <div class="go">Open tutor →</div>`;
+    grid.appendChild(a);
+  });
+</script>
+</body>
+</html>
