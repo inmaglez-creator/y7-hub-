@@ -90,7 +90,7 @@
     <div class="tip">💡 Tip: the two areas that make the biggest difference at the start of Y7 are <strong>basic algebra</strong> and <strong>PEEL writing</strong>. Build them in regularly.</div>
   </div>
 
-  <footer>Open any subject in a new tab. Works on phone, tablet or computer.</footer>
+  <footer>Tap a subject to start. Use the “← Hub” button in each app to come back. Works on phone, tablet or computer.</footer>
 </div>
 
 <script>
@@ -109,7 +109,7 @@
   SUBJECTS.forEach(s => {
     const a = document.createElement("a");
     a.className = "card";
-    a.href = s.url; a.target = "_blank"; a.rel = "noopener";
+    a.href = s.url;
     a.style.setProperty("--c", s.c);
     a.style.setProperty("--l", s.l);
     a.innerHTML = `
